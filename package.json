@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "simple ecommerce app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.13.4"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ecomApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>ecommerce</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="style/main.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body >
+	<nav-bar></nav-bar>
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+			<ng-view></ng-view>
+		</div>
+	</div>
+
+<script src="lib/js/jquery.min.js"></script>
+
+<script src="lib/js/bootstrap.min.js"></script>
+
+<script src="lib/js/angular.js"></script>
+
+<script src="lib/js/angular-route.js"></script>
+<script src="app/app.js"></script>
+
+
+<script src="app/components/navbar/navbar.js"></script>
+<script src="app/components/navbar/navbarCtrl.js"></script>
+<script src="app/services/routerService.js"></script>
+
+
+</body>
+</html>

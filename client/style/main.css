@@ -1,0 +1,29 @@
+/* =================================================
+   Layout
+   ================================================= */
+
+html {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/**
+ * Required padding for .navbar-fixed-top.
+ * Remove if using .navbar-static-top.
+ * Change if height of navigation changes.
+ */
+
+body {
+    padding-top: 70px;
+    font-size: 1.6em;
+}
+
+.container {
+    overflow: hidden;
+}
