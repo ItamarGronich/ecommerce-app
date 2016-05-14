@@ -1,3 +1,5 @@
+require('./navbarCtrl.js');
+
 (function (app) {
 	app.directive('navBar', function () {
 		return {

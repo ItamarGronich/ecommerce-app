@@ -22,7 +22,13 @@
 				redirectTo: '/home/'
 			})
 			.when('/home/', {
-				templateUrl: '/app/views/homeView.html'
+				templateUrl: '/app/views/homeView.html',
+				resolve: {
+					data: function (dataService) {
+						return dataService.getData();
+					}
+				},
+				controller: 'homeViewCtrl as home'
 			})
 	}
 	
@@ -31,3 +37,10 @@
 	angular.module('ecomApp', ['ngRoute'])
 		.config(configApp);
 })(angular);
+
+require('./services/routerService.js');
+require('./services/dataService.js');
+require('./components/navbar/navbar.js');
+require('./components/item/item.js');
+require('./components/item-board/item-board.js');
+require('./views/homeViewCtrl.js');

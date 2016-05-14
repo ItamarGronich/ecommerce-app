@@ -4,11 +4,16 @@
   "description": "simple ecommerce app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "build": "browserify client/app/app.js > client/app/bundle.js",
+    "watch": "watchify client/app/app.js -d -o client/app/bundle.js -v"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "4.13.4"
+  },
+  "devDependencies": {
+    "browserify": "13.0.1"
   }
 }

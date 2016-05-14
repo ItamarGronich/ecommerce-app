@@ -27,3 +27,7 @@ body {
 .container {
     overflow: hidden;
 }
+
+.space {
+    margin: 16px 0;
+}
