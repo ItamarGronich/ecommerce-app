@@ -1,0 +1,190 @@
+<section class="checkout">
+
+
+	<h2 class="page-header">Checkout</h2>
+
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Cart Summary</h3>
+		</div>
+		<div class="panel-body">
+			<p>Shipping ratings are not included in price.
+			rates are (of course) $1,000,000 per item</p>
+		</div>
+
+
+		<table class="table table-bordered table-hover table-striped postsTable">
+			<thead data-ng-click="admin.clickedOnFilter($event)">
+			<tr>
+				<th data-ng-click="$event.stopPropagation();">#</th>
+				<th>
+					Item
+                <span class="pull-right">
+                </span>
+				</th>
+				<th>
+					price
+                <span class="pull-right">
+                </span>
+				</th>
+				<th>
+					Quantity
+                <span class="pull-right">
+
+				</span>
+				</th>
+			</tr>
+			</thead>
+
+			<tbody data-ng-click="">
+
+			<tr data-ng-repeat="item in checkout.data">
+				<th>{{$index +1}}</th>
+				<td>{{item.title}}</td>
+				<td>{{item.price | currency: '$' : 0}}</td>
+				<td>{{item.quantity}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<th>Total</th>
+				<td>{{checkout.totalPrice() | currency: '$' : 0}}</td>
+			</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-7">
+				<label for="inputFirstName3" class="col-sm-2 control-label">First Name</label>
+				<div class="col-sm-10 pull-right">
+					<input type="email" class="form-control" id="inputFirstName3"
+											   placeholder="First Name" autocomplete="off">
+				</div>
+			</div>
+			<div class="col-sm-5 pull-right">
+				<label for="inputLastName3" class="col-sm-2 control-label">Last Name</label>
+				<div class="col-sm-10 pull-right">
+					<input type="email" class="form-control" id="inputLastName3"
+											   placeholder="Last Name" autocomplete="off">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" class="form-control" id="inputEmail3" placeholder="Email" autocomplete="off">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="inputPassword3" placeholder="Password" autocomplete="off">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="container">
+				<div class="row">
+					<!-- You can make it whatever width you want. I'm making it full width
+						 on <= small devices and 4/12 page width on >= medium devices -->
+					<div class="col-xs-12 col-md-10 pull-right">
+
+
+						<!-- CREDIT CARD FORM STARTS HERE -->
+						<div class="panel panel-default credit-card-box">
+							<div class="panel-heading display-table" >
+								<div class="row display-tr" >
+									<h3 class="panel-title display-td" >Payment Details</h3>
+									<div class="display-td" >
+										<img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label for="cardNumber">CARD NUMBER</label>
+												<div class="input-group">
+													<input
+															type="tel"
+															class="form-control"
+															id="cardNumber"
+															placeholder="Valid Card Number"
+															autocomplete="cc-number"
+															required autofocus
+													/>
+													<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-7 col-md-7">
+											<div class="form-group">
+												<label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+												<input
+														type="tel"
+														class="form-control"
+														id="cardExpiry"
+														placeholder="MM / YY"
+														autocomplete="cc-exp"
+														required
+												/>
+											</div>
+										</div>
+										<div class="col-xs-5 col-md-5 pull-right">
+											<div class="form-group">
+												<label for="cardCVC">CV CODE</label>
+												<input
+														type="tel"
+														class="form-control"
+														id="cardCVC"
+														placeholder="CVC"
+														autocomplete="cc-csc"
+														required
+												/>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="form-group">
+												<label for="couponCode">COUPON CODE</label>
+												<input type="text" class="form-control" id="couponCode" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<button class="subscribe btn btn-success btn-lg btn-block" type="button">Start Subscription</button>
+										</div>
+									</div>
+									<div class="row" style="display:none;">
+										<div class="col-xs-12">
+											<p class="payment-errors"></p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-8 col-xs-10">
+				<a href="#/cart/" class="btn btn-danger">Cancel</a>
+			</div>
+			<div class="col-xs-2">
+				<button type="submit" class="btn btn-success pull-right">checkout</button>
+			</div>
+		</div>
+	</form>
+</section>

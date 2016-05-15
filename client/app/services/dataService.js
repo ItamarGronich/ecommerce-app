@@ -2,6 +2,10 @@
 	app.service('dataService', dataService);
 
 	function dataService($http) {
+		
+		
+		var cart = [],
+			items = [];
 
 		function getData() {
 			return [
@@ -44,8 +48,25 @@
 			]
 
 		}
+		
+		function storeInCart(item) {
+			if (!item.quantity) {
+				item.quantity = 1;
+				cart.push(item);
+			} else {
+				item.quantity += 1;
+			}
+		}
+
+		function getInCart() {
+			return cart;
+		}
 
 		this.getData = getData;
+		
+		this.storeInCart = storeInCart;
+		
+		this.getInCart = getInCart;
 	}
 
 	dataService.$inject = ['$http'];

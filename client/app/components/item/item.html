@@ -5,10 +5,10 @@
 		</div>
 		<div class="panel-body">
 			<img ng-src="{{item.imgUrl}}" alt="" class="img-thumbnail space">
-			<p class="pull-right label label-success">{{item.price | currency: '$'}}</p>
+			<p class="pull-right label label-success">{{item.price | currency: '$' : 0}}</p>
 			<p>{{item.description}}</p>
 			<p>
-				<button type="button" class="btn btn-primary">Add To Cart
+				<button type="button" class="btn btn-primary" ng-click="addToCart(item)">Add To Cart
 					<span class="glyphicon glyphicon-plus"></span>
 				</button>
 			</p>

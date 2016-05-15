@@ -3,7 +3,7 @@
 
 	function homeViewCtrl(data) {
 		
-		this.data = data
+		this.data = data;
 		
 	}
 	

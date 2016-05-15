@@ -2,7 +2,19 @@
 
 	app.directive('item', function () {
 		return {
-			templateUrl: 'app/components/item/item.html'
+			restrict:'AE',
+			templateUrl: 'app/components/item/item.html',
+			controller: ['dataService', '$scope' , function (dataService, $scope) {
+				
+				
+				$scope.addToCart = function (item) {
+					console.log(item);
+					
+					dataService.storeInCart(item);
+				}
+				
+				
+			}]
 		}
 	})
 
