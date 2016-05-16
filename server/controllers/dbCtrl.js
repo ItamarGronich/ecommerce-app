@@ -33,7 +33,8 @@ module.exports = function (app) {
 
 
 	// when store items is called
-	app.put('/items', function (req, res) {
+	app.post('/items', function (req, res) {
+
 		
 		//store items
 		dbModel.storeItems(req.body)
@@ -51,8 +52,8 @@ module.exports = function (app) {
 
 
 	// when store items is called
-	app.put('/cart', function (req, res) {
-
+	app.post('/cart', function (req, res) {
+		
 		//store cart
 		dbModel.storeCart(req.body)
 			.then(

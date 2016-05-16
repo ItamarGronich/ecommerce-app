@@ -12,7 +12,7 @@
 		}
 		
 		function storeInCart(item) {
-			return
+			return $http.post('/cart', item)
 		}
 
 		function getInCart() {

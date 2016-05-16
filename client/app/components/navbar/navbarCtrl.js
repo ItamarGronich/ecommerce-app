@@ -7,7 +7,8 @@
 
 		var $links = $( '#navbarLinks').find('a');
 
-		$rootScope.$onRootScope('$routeChangeStart', renderState);
+
+		$rootScope.$onRootScope('$routeChangeSuccess', renderState);
 
 		function renderState() {
 			console.log('FIRED');
