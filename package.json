@@ -4,9 +4,11 @@
   "description": "simple ecommerce app",
   "main": "index.js",
   "scripts": {
+		"setup": "npm install -g browserify && npm install npm run seed && npm run build && npm run start",
     "start": "nodemon server/server.js",
     "build": "browserify client/app/app.js > client/app/bundle.js",
-    "watch": "watchify client/app/app.js -d -o client/app/bundle.js -v"
+    "watch": "watchify client/app/app.js -d -o client/app/bundle.js -v",
+    "seed": "node server/seed/seed.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "morgan": "1.7.0"
   },
   "devDependencies": {
-    "browserify": "13.0.1"
+    "browserify": "13.0.1",
+    "colors": "1.1.2"
   }
 }

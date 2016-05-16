@@ -8,58 +8,15 @@
 			items = [];
 
 		function getData() {
-			return [
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				},
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				},
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				},
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				},
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				},
-				{
-					title: 'Gold Plated Tooth Brush',
-					price: 1000000,
-					imgUrl: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
-					description: 'Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world.'
-				}
-			]
-
+			return $http.get('/items');
 		}
 		
 		function storeInCart(item) {
-			if (!item.quantity) {
-				item.quantity = 1;
-				cart.push(item);
-			} else {
-				item.quantity += 1;
-			}
+			return
 		}
 
 		function getInCart() {
-			return cart;
+			return $http.get('/cart');
 		}
 
 		this.getData = getData;

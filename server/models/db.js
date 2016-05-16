@@ -1,7 +1,15 @@
-var level = require('level'),
-    db = level('../db', { valueEncoding: 'json'});
+var level = require('level');
+var  db = level('./db', { valueEncoding: 'json'});
 
+function generateQuantity(item){
+	if (!item.quantity) {
+		item.quantity = 1;
+		cart.push(item);
+	} else {
+		item.quantity += 1;
+	}
 
+}
 /**
  * 
  * @returns {Promise | Array} .then if resolved returns items Array
@@ -9,8 +17,8 @@ var level = require('level'),
 function getItems(){
 	return new Promise(function(res, rej){
 		db.get('items', function (err, items) {
-			
-			if (err) { 
+	
+			if (err) {
 				rej({failed: 'Could not get items Array', err: err})
 			}
 			
@@ -42,19 +50,17 @@ function getCart(){
  * @returns {Promise | Array} .then if resolved returns items Array
  */
 function storeItems(items){
-
-	// if items object is not array - reject with error.
-	if (!Array.isArray(items)) {rej({err: new TypeError('items object supplied should be an array')})}
-	
-	
 	return new Promise(function(res, rej){
+
+		// if items object is not array - reject with error.
+		if (!Array.isArray(items)) {rej({err: new TypeError('items object supplied should be an array')})}
 		db.put('items', items, function (err, items) {
 			
 			if (err) { 
 				rej({failed: 'Could not get items Array', err: err})
 			}
 			
-			res(items);
+			res('items stored');
 		});
 	})
 }
@@ -74,8 +80,8 @@ function storeCart(cart){
 			if (err) { 
 				rej({failed: 'Could not get cart Array', err: err})
 			}
-			
-			res(cart);
+
+			res('cart stored');
 		});
 	})
 }
@@ -86,6 +92,6 @@ function storeCart(cart){
 module.exports = {
 	getItems: getItems,
 	getCart: getCart,
-	storeItems: getItems,
-	storeCart: getCart
+	storeItems: storeItems,
+	storeCart: storeCart
 };

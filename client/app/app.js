@@ -25,7 +25,9 @@
 				templateUrl: '/app/views/homeView/homeView.html',
 				resolve: {
 					data: ['dataService',function (dataService) {
-						return dataService.getData();
+						
+						return dataService.getData()
+							.then(function (resolve) {return resolve.data;});
 					}]
 				},
 				controller: 'homeViewCtrl as home'
@@ -34,7 +36,8 @@
 				templateUrl: 'app/views/cartView/cartView.html',
 				resolve: {
 					data: ['dataService', function (dataService) {
-						return dataService.getInCart();
+						return dataService.getInCart()
+							.then(function (resolve) {return resolve.data;});
 					}]
 				},
 				controller: 'cartViewCtrl as cart'
@@ -43,7 +46,8 @@
 				templateUrl: 'app/views/checkoutView/checkoutView.html',
 				resolve: {
 					data: ['dataService', function (dataService) {
-						return dataService.getInCart();
+						return dataService.getInCart()
+							.then(function (resolve) {return resolve.data;});
 					}]
 				},
 				controller: 'checkoutViewCtrl as checkout'
