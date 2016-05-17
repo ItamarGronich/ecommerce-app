@@ -1,4 +1,4 @@
-require('./successCtrl.js')
+require('./successCtrl.js');
 
 (function (app) {
 	app.directive('success', function () {
