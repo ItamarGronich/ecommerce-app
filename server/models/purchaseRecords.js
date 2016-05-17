@@ -3,7 +3,6 @@ module.exports = function (db) {
 	function getPurchaseRecords(){
 		return new Promise(function (resolve, reject) {
 			db.get('purchaseRecords', function(err, entry){
-				console.log('entry: ', entry);
 				
 				if (err) { reject(err) }
 
@@ -13,19 +12,14 @@ module.exports = function (db) {
 	}
 
 	function storeInPurchases(data) {
-		console.log('data recieved by store in p', data);
-		
 		return getPurchaseRecords()
 			.then(function (purchaseRecords) {
-				console.log('got from db: ',purchaseRecords);
-				
-				purchaseRecords.push(data);
+				var now = new Date().toUTCString();
+				purchaseRecords.push('time: ' + now + '; ' + data);
 				return purchaseRecords;
 			})
 			.then(function (newPurchaseRecords) {
 
-				console.log('new data to be put: ', newPurchaseRecords);
-				
 				return new Promise(function (resolve, reject) {
 					db.put('purchaseRecords', newPurchaseRecords, function (err) {
 						if (err) { reject(err) }
@@ -34,7 +28,14 @@ module.exports = function (db) {
 					})
 				})
 			})
-			.then(getPurchaseRecords);
+			.then(function () {
+				 return getPurchaseRecords()
+					 .then(function (arr) {
+						 return arr[ (arr.length -1 ) ];
+					 });
+				
+				
+			});
 	}
 
 

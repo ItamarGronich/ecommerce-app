@@ -52,6 +52,26 @@
 				},
 				controller: 'checkoutViewCtrl as checkout'
 			})
+			.when('/admin/', {
+				templateUrl: 'app/views/adminView/adminView.html',
+				resolve: {
+					data: ['dataService', function (dataService) {
+						return dataService.getPurchaseRecords()
+							.then(function (resolved) {return resolved.data;});
+					}]
+				},
+				controller: 'adminViewCtrl as admin'
+			})
+			.when('/purchase-successful/', {
+				templateUrl: 'app/views/purchaseSuccessful/purchaseSuccessful.html',
+				resolve: {
+					data: ['dataService', function (dataService) {
+						return dataService.getInCart()
+							.then(function (resolve) {return resolve.data;});
+					}]
+				},
+				controller: 'purchaseSuccessfulCtrl as summary'
+			})
 	}
 	
 	configApp.$inject = ['$routeProvider', '$provide'];
@@ -74,10 +94,14 @@ require('./components/navbar/navbar.js');
 require('./components/item/item.js');
 require('./components/item-board/item-board.js');
 require('./components/cartTable/cartTable.js');
+require('./components/listGroup/listGroup.js');
+require('./components/success/success.js');
 
 /*
- * Views
+ * Views controllers
  **/
 require('./views/homeView/homeViewCtrl.js');
 require('./views/cartView/cartViewCtrl.js');
 require('./views/checkoutView/checkoutViewCtrl.js');
+require('./views/adminView/adminViewCtrl.js');
+require('./views/purchaseSuccessful/purchaseSuccessfulCtrl.js');

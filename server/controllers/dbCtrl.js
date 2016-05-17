@@ -83,7 +83,6 @@ module.exports = function (app) {
 
 	// when store purchaseRecords is called
 	app.post('/purchase-records/', function (req, res) {
-		console.log('body: ' , req.body);
 		
 		//store cart
 		dbModel
@@ -91,6 +90,8 @@ module.exports = function (app) {
 			.storeInPurchases(req.body)
 			.then(
 				function(success){
+
+					
 					res.send(success);
 				},
 				function (err) {
@@ -108,6 +109,7 @@ module.exports = function (app) {
 			.then(
 				// on resolve - send success message
 				function(purchaseRecords){
+					
 					res.send(purchaseRecords);
 				},
 				// on error send status code 500 and the error

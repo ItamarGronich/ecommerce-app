@@ -2,43 +2,43 @@
 	{
 		"title":"Gold Plated Tooth Brush",
 		"id": 0,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
+		"price":6000,
+		"imgUrl":"https://gen0.artedona.com/product/1/_NZ/52805_1.jpg",
 		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
 	},
 	{
-		"title":"Gold Plated Tooth Brush",
+		"title":"Golden Toilet paper",
 		"id": 1,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
-		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
+		"price":1300000,
+		"imgUrl":"http://cdn.ebaumsworld.com/mediaFiles/picture/1015945/83777351.jpg",
+		"description":"Spoil your behind wiping with pure gold"
 	},
 	{
-		"title":"Gold Plated Tooth Brush",
+		"title":"Bottled Water: Acqua di Cristallo Tributo a Modigliani ",
 		"id": 3,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
-		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
+		"price":60000,
+		"imgUrl":"http://cdn.ebaumsworld.com/mediaFiles/picture/1015945/83777338.png",
+		"description":"Just Like regular water but expensive"
 	},
 	{
-		"title":"Gold Plated Tooth Brush",
+		"title":"Pen: Aurora Diamante Fountain Pen",
 		"id": 4,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
-		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
+		"price":1470000,
+		"imgUrl":"http://cdn.ebaumsworld.com/mediaFiles/picture/1015945/83777343.jpg",
+		"description":"Ink sold separately"
 	},
 	{
-		"title":"Gold Plated Tooth Brush",
+		"title":"Men's Perfume: Clive Christian No. 1 Pure Perfume for Men",
 		"id": 5,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
-		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
+		"price":2350,
+		"imgUrl":"http://cdn.ebaumsworld.com/mediaFiles/picture/1015945/83777345.jpg",
+		"description":"Smell linke 2,350 bucks"
 	},
 	{
-		"title":"Gold Plated Tooth Brush",
+		"title":"Candle: The Ultimate Luxury Candle",
 		"id": 6,
-		"price":1000000,
-		"imgUrl":"https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
-		"description":"Premium 24 carat gold plated tooth brush. High quality horse tail fibers. Approved by dentists around the world."
+		"price":6495,
+		"imgUrl":"http://cdn.ebaumsworld.com/mediaFiles/picture/1015945/83777354.jpg",
+		"description":"No fancier way to burn out your money"
 	}
 ]

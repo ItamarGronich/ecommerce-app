@@ -4,13 +4,17 @@
 		return {
 			restrict:'AE',
 			templateUrl: 'app/components/item/item.html',
-			controller: ['dataService', '$scope' , function (dataService, $scope) {
+			controller: ['dataService', '$scope', '$rootScope' , function (dataService, $scope, $rootScope) {
 				
 				
 				$scope.addToCart = function (item) {
-					console.log(item);
 					
-					dataService.storeInCart(item);
+					dataService.storeInCart(item)
+						.then(function(){
+							
+							$rootScope.$emit('addedtocart');
+						});
+
 				}
 				
 				

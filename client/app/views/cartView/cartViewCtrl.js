@@ -4,10 +4,9 @@
 	function cartViewCtrl(data) {
 		this.data = data;
 
-	
 	}
 
 
 	cartViewCtrl.$inject = ['data'];
-	
+
 })(angular.module('ecomApp'));
