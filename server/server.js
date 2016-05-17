@@ -16,9 +16,9 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
+app.use(bodyParser.text());
 
-
-// instantiate controllers with app
+// instantiate controllers with app * logger
 controllers(app);
 
 

@@ -64,3 +64,29 @@ db.put('cart', [], function (err) {
 
 	}
 });
+
+
+// input purchaseRecords as an empty array in DB
+db.put('purchaseRecords', [], function (err) {
+
+	if (err) {
+		console.log(colors.red('problem putting purchaseRecords Array in DB', err));
+		return err;
+	} else {
+
+
+		new Promise(function(res, rej){
+			db.get('purchaseRecords', function (err, purchaseRecords) {
+				if (err) { rej(purchaseRecords)}
+				res(purchaseRecords);
+			})
+		}).then(function(purchaseRecords){
+			console.log(
+				colors.green('successfully seeded DB with purchaseRecords Array:'),
+				purchaseRecords
+
+			);
+		});
+
+	}
+});

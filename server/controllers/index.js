@@ -7,5 +7,5 @@ var dbCtrl = require('./dbCtrl.js');
 
 
 module.exports = function(app){
-	dbCtrl(app)
+	dbCtrl(app);
 };

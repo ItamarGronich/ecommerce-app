@@ -19,11 +19,17 @@
 			return $http.get('/cart');
 		}
 
+		function removeFromCart(item) {
+			return $http.delete('/cart/' + item.id);
+		}
+
 		this.getData = getData;
 		
 		this.storeInCart = storeInCart;
 		
 		this.getInCart = getInCart;
+
+		this.removeFromCart = removeFromCart;
 	}
 
 	dataService.$inject = ['$http'];

@@ -1,0 +1,48 @@
+<table class="table table-bordered table-hover table-striped postsTable">
+	<thead data-ng-click="admin.clickedOnFilter($event)">
+	<tr>
+		<th data-ng-click="$event.stopPropagation();">#</th>
+		<th>
+			Item
+                <span class="pull-right">
+                </span>
+		</th>
+		<th>
+			price
+                <span class="pull-right">
+                </span>
+		</th>
+		<th>
+			Quantity
+                <span class="pull-right">
+
+				</span>
+		</th>
+	</tr>
+	</thead>
+
+	<tbody data-ng-click="">
+
+	<tr data-ng-repeat="item in cart.data">
+		<th>{{$index +1}}</th>
+		<td>{{item.title}}</td>
+		<td>{{item.price | currency: '$' : 0}}</td>
+		<td>
+			{{item.quantity}}
+
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" data-ng-click="cart.removeItem(item)"><span aria-hidden="true">&times;</span></button>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<th>Total</th>
+		<td>
+			{{cart.totalPrice() | currency: '$' : 0}}
+
+
+		</td>
+	</tr>
+
+	</tbody>
+</table>

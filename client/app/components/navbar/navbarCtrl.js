@@ -11,7 +11,6 @@
 		$rootScope.$onRootScope('$routeChangeSuccess', renderState);
 
 		function renderState() {
-			console.log('FIRED');
 			
 			var path = routerService.getCurrentPath()[0];
 

@@ -60,11 +60,24 @@
 		.config(configApp);
 })(angular);
 
+
+/*
+ * Services
+ **/
 require('./services/routerService.js');
 require('./services/dataService.js');
+
+/*
+ * Components
+ **/
 require('./components/navbar/navbar.js');
 require('./components/item/item.js');
 require('./components/item-board/item-board.js');
+require('./components/cartTable/cartTable.js');
+
+/*
+ * Views
+ **/
 require('./views/homeView/homeViewCtrl.js');
 require('./views/cartView/cartViewCtrl.js');
 require('./views/checkoutView/checkoutViewCtrl.js');

@@ -1,6 +1,10 @@
 var level = require('level');
 var  db = level('./db', { valueEncoding: 'json'});
 
+var purchaseRecords = require('./purchaseRecords');
+
+
+
 function generateQuantity(item){
 	if (!item.quantity) {
 		item.quantity = 1;
@@ -48,15 +52,13 @@ function getCart(){
  * @param items {Array} - Array of item objects
  * @returns {Promise | Array} .then if resolved returns items Array
  */
-function storeItems(item){
+function storeItems(items){
 	return new Promise(function(res, rej){
 
 		// if items object is not [Object object] - reject with error.
-		if (typeof item === 'object' && item !== null && Object.prototype.toString(item) === '[Object object]') {
-			rej({err: new TypeError('item object supplied should be an [Object object]')})
+		if ( Array.isArray(items) ) {
+			rej({err: new TypeError('item object supplied should be an Array')})
 		}
-		var items = null;
-
 
 		db.put('items', items, function (err, items) {
 			
@@ -104,10 +106,64 @@ function storeCart(item){
 			if (index > -1) {
 				generateQuantity(cart[index])
 			} else {
+				generateQuantity(item);
 				cart.push(item);
 			}
 			
 			putFinalObjInCart(cart);
+		});
+
+
+	})
+}
+
+/**
+ * @param items {Array} - Array of item objects
+ * @returns {Promise | Array} .then if resolved returns items Array
+ */
+function deleteFromCart(itemId){
+    var itemId = parseInt(itemId);
+	return new Promise(function(res, rej){
+
+		// if items object is not [Object object] - reject with error.
+		if ( Number.isNaN(itemId) ) {
+			rej({err: new TypeError('itemId argument supplied should be a Number')})
+		}
+
+		new Promise(function(res,rej){
+			db.get('cart', function (err, cart) {
+
+				if (err) {
+					rej({failed: 'Could not get cart Array', err: err})
+				}
+
+				res(cart);
+			});
+		})
+			.then(function (cart) {
+				
+				var index = cart.findIndex(function(el){
+					return el.id === itemId;
+				});
+
+
+				if (index > -1) {
+					cart.splice(index, 1);
+				}
+
+
+				
+				return cart;
+		})
+			.then(function (newCart) {
+				db.put('cart', newCart, function (err, cart) {
+
+					if (err) {
+						rej({failed: 'Could not get items Array', err: err})
+					}
+
+					res(cart);
+				});
 		});
 
 
@@ -121,5 +177,7 @@ module.exports = {
 	getItems: getItems,
 	getCart: getCart,
 	storeItems: storeItems,
-	storeCart: storeCart
+	storeCart: storeCart,
+	deleteFromCart: deleteFromCart,
+	purchaseRecords: purchaseRecords(db)
 };

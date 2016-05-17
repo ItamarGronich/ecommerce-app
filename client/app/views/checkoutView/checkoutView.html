@@ -14,46 +14,7 @@
 		</div>
 
 
-		<table class="table table-bordered table-hover table-striped postsTable">
-			<thead data-ng-click="admin.clickedOnFilter($event)">
-			<tr>
-				<th data-ng-click="$event.stopPropagation();">#</th>
-				<th>
-					Item
-                <span class="pull-right">
-                </span>
-				</th>
-				<th>
-					price
-                <span class="pull-right">
-                </span>
-				</th>
-				<th>
-					Quantity
-                <span class="pull-right">
-
-				</span>
-				</th>
-			</tr>
-			</thead>
-
-			<tbody data-ng-click="">
-
-			<tr data-ng-repeat="item in checkout.data">
-				<th>{{$index +1}}</th>
-				<td>{{item.title}}</td>
-				<td>{{item.price | currency: '$' : 0}}</td>
-				<td>{{item.quantity}}</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<th>Total</th>
-				<td>{{checkout.totalPrice() | currency: '$' : 0}}</td>
-			</tr>
-
-			</tbody>
-		</table>
+		<cart-table cart-data="checkout.data"></cart-table>
 	</div>
 
 	<form class="form-horizontal">
