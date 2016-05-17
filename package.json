@@ -4,7 +4,7 @@
   "description": "simple ecommerce app",
   "main": "index.js",
   "scripts": {
-    "setup": "npm install -g browserify && npm install npm run seed && npm run build && npm run serve",
+    "setup": "sudo npm install -g browserify && npm install && npm run seed && npm run build && npm run serve",
     "serve": "nodemon server/server.js",
     "build": "browserify client/app/app.js > client/app/bundle.js",
     "watch": "watchify client/app/app.js -d -o client/app/bundle.js -v",
